@@ -112,15 +112,16 @@
                 </button>
             </div>
             
-            <div class="mt-10">
-                <table class="border-t-4 border-blue-400 w-4/5 mx-auto">
+            <div class="mt-10 mr-8">
+                <table class="border-t-4 border-blue-400 w-full ">
                     <thead class="text-center">
                         <tr>
                             <td class="border border-blue-100">STT</td>
                             <td class="border border-blue-100">Tên danh mục</td>
                             <td class="border border-blue-100">Mô tả</td>
-                            <td class="border border-blue-100">Sửa</td>
-                            <td class="border border-blue-100">Xóa</td>
+                           
+                            <td class="border w-10 border-blue-100">Sửa</td>
+                            <td class="border w-10 border-blue-100">Xóa</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -134,6 +135,7 @@
                             <td class="border border-blue-100 text-center px-2"><?php echo $i ?></td>
                             <td class="border border-blue-100 px-2"><?php echo $row_category_table['category_name'] ?></td>
                             <td class="border border-blue-100 px-2"><?php echo $row_category_table['category_desc'] ?></td>
+                            
                             <td class="flex border border-blue-100 px-2 justify-center">
                                 <a href="editcategory.php?id=<?php echo $row_category_table['category_id'] ?>">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6  text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">

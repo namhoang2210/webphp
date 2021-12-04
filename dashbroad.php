@@ -94,8 +94,10 @@
             </div>
             <!-- top-content-end -->
             <!-- main-content-start -->
-            <div class="mt-10">
-                <div></div>
+            <div class="mt-10 ">
+                <div class="flex justify-center">
+                   <img src="image/Pic1.png" alt="">
+                </div>
             </div>
             <!-- main-content-end -->
         </div>

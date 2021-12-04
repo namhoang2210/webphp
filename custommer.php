@@ -104,14 +104,15 @@
                 
             </div>
             
-            <div class="mt-10">
-                <table class="border-t-4 border-blue-400 w-4/5 mx-auto">
+            <div class="mt-10 mr-8">
+                <table class="border-t-4 border-blue-400 w-full">
                     <thead class="text-center">
                         <tr>
                             <td class="border border-blue-100">STT</td>
                             <td class="border border-blue-100">Tên</td>
                             <td class="border border-blue-100">Email</td>
                             <td class="border border-blue-100">Tình trạng đơn hàng</td>
+                            <td class="border border-blue-100">Xác nhận</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -128,16 +129,16 @@
                             <td class="border border-blue-100 text-center px-2">
                                 <?php
                                 if($row_user_table['user_order'] == 1){
-                                    echo '<a href="mail/sendmail.php">Xác nhận</a>';
-                                    // $user_update = $row_user_table['user_id'];
-                                    // $sql_xacnhan = mysqli_query($con,"UPDATE tbl_user 
-                                    //                                 SET user_oder='0'
-                                    //                                 WHERE user_id = '$user_update'");
+                                    echo ("Chờ xác nhận");
+                        
                                 }else{
                                     echo ("Không có đơn hàng");
                                 }
                                  
                                  ?>
+                            </td>
+                            <td class="border border-blue-100 text-center px-2">
+                                <a href="mail/sendmail.php?id=<?php echo $row_user_table['user_id'] ?>">Click</a>
                             </td>
                         </tr>
                         <?php

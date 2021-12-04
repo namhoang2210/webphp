@@ -117,8 +117,8 @@
                 Thêm sản phẩm
                 </button>
             </div>
-            <div class="mt-10">
-                <table class="border-t-4 border-blue-400 w-4/5 mx-auto">
+            <div class="mt-10 mr-8 ">
+                <table class="border-t-4 border-blue-400 w-full ">
                     <thead class="text-center">
                         <tr>
                             <td class="border border-blue-100">STT</td>
@@ -127,8 +127,8 @@
                             <td class="border border-blue-100">Giá (vnd)</td>
                             <td class="border border-blue-100">Số lượng</td>
                             <td class="border border-blue-100">Tình trạng</td>
-                            <td class="border border-blue-100">Sửa</td>
-                            <td class="border border-blue-100">Xóa</td>
+                            <td class="border w-10 border-blue-100">Sửa</td>
+                            <td class="border w-10 border-blue-100">Xóa</td>
                         </tr>
                     </thead>
                     <tbody>
