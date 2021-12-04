@@ -16,7 +16,7 @@
         if($_SESSION['admin'] == 1){
             header('location:dashbroad.php');
         }elseif($_SESSION['admin'] == 0){
-            header('location:index.php');
+            header('location:trang-chu.php');
         }
     }   
         

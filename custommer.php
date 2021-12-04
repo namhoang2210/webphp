@@ -6,11 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bảng điều khiển</title>
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     <?php
-        include('connect.php');
+        include('connect.php'); 
     ?>
     <div class="flex">
         <!-- menu-start -->
@@ -52,8 +51,8 @@
                     </div>
                 </div>
                 <!-- List-category-end -->
-                 <!-- Customer -->
-                 <div>
+                <!-- Customer -->
+                <div>
                     <div class="flex items-center space-x-2 mb-2 mt-6  hover:text-yellow-800">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
@@ -94,38 +93,62 @@
                 </div>
             </div>
             <!-- top-content-end -->
-            
             <!-- main-content-start -->
-            <div class="flex gap-2 items-center w-72 mt-14 text-xl bg-yellow-400 rounded-md py-2 text-gray-50">
-                <div class="ml-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
+            <div class=" mt-14 w-56 ">
+                <div class="flex items-center gap-2 bg-red-400 text-xl rounded-md py-2 text-gray-50 px-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+                </svg>                   
+                    Quản lí khách hàng
                 </div>
-               Sửa danh mục sản phẩm
-            </div>
-            <?php
-                $id = $_GET['id'];
                 
-                $sql_category = mysqli_query($con,"SELECT * FROM tbl_category WHERE category_id = '$id'");
-                $row_category = mysqli_fetch_array($sql_category);
-            ?>
-            <div class="mt-10 ">
-                <form method="POST" action="editcategory_submit.php?id=<?php echo $id ?>" id="insert_category">
-                    <label class="text-xl text-gray-600" for="">Tên danh mục</label> <br>
-                    <input type="text" name="tendanhmuc"  class=" border border-blue-400 w-96 h-10 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" value="<?php echo $row_category['category_name'] ?>"> <br> <br>
-                    <label class="text-xl text-gray-600" for="">Ghi chú</label> <br> 
-                    <input type="text" name="ghichu" class=" border border-blue-400 w-96 h-10 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" value="<?php echo $row_category['category_desc'] ?>"> 
-                    <br>
-                    <button type="submit" class="border border-blue-400 py-1 px-4 rounded-full mt-3 hover:bg-blue-400 hover:text-white">Sửa</button>
-                   
-                </form>
             </div>
             
+            <div class="mt-10">
+                <table class="border-t-4 border-blue-400 w-4/5 mx-auto">
+                    <thead class="text-center">
+                        <tr>
+                            <td class="border border-blue-100">STT</td>
+                            <td class="border border-blue-100">Tên</td>
+                            <td class="border border-blue-100">Email</td>
+                            <td class="border border-blue-100">Tình trạng đơn hàng</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                            $sql_user_table = mysqli_query($con,"SELECT * FROM tbl_user WHERE user_admin='0' ORDER BY user_id DESC ");
+                            $i=0;
+                            while( $row_user_table = mysqli_fetch_array($sql_user_table)){
+                                $i=$i +1;
+                        ?>
+                        <tr>
+                            <td class="border border-blue-100 text-center px-2"><?php echo $i ?></td>
+                            <td class="border border-blue-100 text-center px-2"><?php echo $row_user_table['user_name'] ?></td>
+                            <td class="border border-blue-100 text-center px-2"><?php echo $row_user_table['user_email'] ?></td>
+                            <td class="border border-blue-100 text-center px-2">
+                                <?php
+                                if($row_user_table['user_order'] == 1){
+                                    echo '<a href="mail/sendmail.php">Xác nhận</a>';
+                                    // $user_update = $row_user_table['user_id'];
+                                    // $sql_xacnhan = mysqli_query($con,"UPDATE tbl_user 
+                                    //                                 SET user_oder='0'
+                                    //                                 WHERE user_id = '$user_update'");
+                                }else{
+                                    echo ("Không có đơn hàng");
+                                }
+                                 
+                                 ?>
+                            </td>
+                        </tr>
+                        <?php
+                            }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
             <!-- main-content-end -->
         </div>
         <!-- content-end -->
     </div>
-    
 </body>
 </html>

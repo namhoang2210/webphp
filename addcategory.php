@@ -52,6 +52,26 @@
                     </div>
                 </div>
                 <!-- List-category-end -->
+                 <!-- Customer -->
+                 <div>
+                    <div class="flex items-center space-x-2 mb-2 mt-6  hover:text-yellow-800">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                        <h1 class="text-2xl">  Khách hàng</h1>
+                    </div>
+                    <div class="ml-8 mr-3">
+                        <div class="flex space-x-1 items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                <h2 class="hover:text-yellow-800"><a href="custommer.php">Quản lí khách hàng</a></h2>
+                        </div>
+                        <hr class="my-2">
+                    </div>
+                        
+                </div>
+                <!-- Customer-end -->
             </div>
         </div>
         <!-- menu-end -->
@@ -85,13 +105,14 @@
                Thêm danh mục sản phẩm
             </div>
             <div class="mt-10 ">
-                <form method="POST" id="insert_category">
+                <form method="POST" action="addcategory_submit.php">
                     <label class="text-xl text-gray-600" for="">Tên danh mục</label> <br>
-                    <input type="text" id="tendanhmuc" class=" border border-blue-400 w-96 h-10 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Nhập tên danh mục"> <br> <br>
+                    <input type="text" name="tendanhmuc" class=" border border-blue-400 w-96 h-10 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Nhập tên danh mục"> <br> <br>
                     <label class="text-xl text-gray-600" for="">Ghi chú</label> <br> 
-                    <input type="text" id="ghichu" class=" border border-blue-400 w-96 h-10 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Nhập ghi chú"> 
+                    <input type="text" name="ghichu" class=" border border-blue-400 w-96 h-10 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Nhập ghi chú"> 
                     <br>
-                    <input type="button" name="insert_data" id="btn_insert" value="Thêm" class="border border-blue-400 py-1 px-4 rounded-full mt-3 hover:bg-blue-400 hover:text-white">
+                    <button type="submit" class="border border-blue-400 py-1 px-4 rounded-full mt-3 hover:bg-blue-400 hover:text-white">Thêm</button>
+                   
                 </form>
             </div>
             
@@ -99,25 +120,6 @@
         </div>
         <!-- content-end -->
     </div>
-    <script>
-        $('#btn_insert').on('click',function(){
-            var tendanhmuc = $('#tendanhmuc').val();
-            var ghichu = $('#ghichu').val();
-            if(tendanhmuc == '' || ghichu == ''){
-                alert('Vui lòng điền đủ các trường');
-            }else{
-                $.ajax({
-                    url: "addcategory_submit.php",
-                    method: "POST",
-                    data:{tendanhmuc:tendanhmuc, ghichu:ghichu},
-                    success:function(data){
-                        alert('Thêm thành công');
-                        $('#insert_category')[0].reset();
-                    }
-                });
-            }  
-        });
-         
-    </script>
+   
 </body>
 </html>

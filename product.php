@@ -51,6 +51,26 @@
                     </div>
                 </div>
                 <!-- List-category-end -->
+                 <!-- Customer -->
+                 <div>
+                    <div class="flex items-center space-x-2 mb-2 mt-6  hover:text-yellow-800">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                        <h1 class="text-2xl">  Khách hàng</h1>
+                    </div>
+                    <div class="ml-8 mr-3">
+                        <div class="flex space-x-1 items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                                </svg>
+                                <h2 class="hover:text-yellow-800"><a href="custommer.php">Quản lí khách hàng</a></h2>
+                        </div>
+                        <hr class="my-2">
+                    </div>
+                        
+                </div>
+                <!-- Customer-end -->
             </div>
         </div>
         <!-- menu-end -->
