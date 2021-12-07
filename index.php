@@ -16,7 +16,9 @@
 </head>
 
 <body>
-
+    <?php
+    include('connect.php');
+    ?>
     <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
         <div class="jumbotron text-center">
             
@@ -165,27 +167,17 @@
                                     Sản phẩm
                                 </td>
                             </tr>
+                            <?php
+                                $sql_category = mysqli_query($con, "SELECT * FROM tbl_category ORDER BY category_id");
+                                
+                                while($row_category = mysqli_fetch_array($sql_category)){
+                            ?>
                             <tr>
-                                <td>Xe tập đi, xe đẩy, xe thăng bằng</td>
+                                <td><?php echo $row_category['category_name'] ?></td>
                             </tr>
-                            <tr>
-                                <td>Sổ & giấy các loại</td>
-                            </tr>
-                            <tr>
-                                <td>Đồ dùng phòng tắm cho bé</td>
-                            </tr>
-                            <tr>
-                                <td>Vật tư y tế</td>
-                            </tr>
-                            <tr>
-                                <td>Đồ dùng ăn dặm cho bé</td>
-                            </tr>
-                            <tr>
-                                <td>Đồ dùng du lịch cho bé</td>
-                            </tr>
-                            <tr>
-                                <td>Đang giảm giá</td>
-                            </tr>
+                            <?php
+                            }
+                            ?>
                         </tbody>
                     </table>
                 </div>
@@ -201,107 +193,23 @@
                     <br>
 
                     <div class="row text-center">
+                        <?php
+                            $sql_product = mysqli_query($con,"SELECT * FROM tbl_product ORDER BY product_id");
+                            while($row_product = mysqli_fetch_array($sql_product)){
+                        ?>
                         <div class="col-sm-2">
                             <div class="thumbnail">
                                 <img src="image/c2ab7ef883acabac64a32ecfd8b18ba4_tn.jfif" alt="San Francisco">
-                                <p><strong>Bộ bấm móng tay ToBé</strong></p>
-                                <font color=#f4511e>200.000đ</font>
+                                <p><strong><?php echo $row_product['product_name'] ?></strong></p>
+                                <font color=#f4511e><?php echo number_format($row_product['product_price']).' vnd' ?></font>
                             </div>
                         </div>
-                        <div class="col-sm-2">
-                            <div class="thumbnail">
-                                <img src="image/c2ab7ef883acabac64a32ecfd8b18ba4_tn.jfif" alt="San Francisco">
-                                <p><strong>Bộ bấm móng tay ToBé</strong></p>
-                                <font color=#f4511e>200.000đ</font>
-                            </div>
-                        </div>
-                        <div class="col-sm-2">
-                            <div class="thumbnail">
-                                <img src="image/c2ab7ef883acabac64a32ecfd8b18ba4_tn.jfif" alt="San Francisco">
-                                <p><strong>Bộ bấm móng tay ToBé</strong></p>
-                                <font color=#f4511e>200.000đ</font>
-                            </div>
-                        </div>
-                        <div class="col-sm-2">
-                            <div class="thumbnail">
-                                <img src="image/c2ab7ef883acabac64a32ecfd8b18ba4_tn.jfif" alt="San Francisco">
-                                <p><strong>Bộ bấm móng tay ToBé</strong></p>
-                                <font color=#f4511e>200.000đ</font>
-                            </div>
-                        </div>
-                        <div class="col-sm-2">
-                            <div class="thumbnail">
-                                <img src="image/c2ab7ef883acabac64a32ecfd8b18ba4_tn.jfif" alt="San Francisco">
-                                <p><strong>Bộ bấm móng tay ToBé</strong></p>
-                                <font color=#f4511e>200.000đ</font>
-                            </div>
-                        </div>
+                        <?php
+                            }
+                        ?>
 
                     </div>
-                    <div class="row text-center">
-                        <div class="col-sm-2">
-                            <div class="thumbnail">
-                                <img src="image/c2ab7ef883acabac64a32ecfd8b18ba4_tn.jfif" alt="San Francisco">
-                                <p><strong>Bộ bấm móng tay ToBé</strong></p>
-                                <font color=#f4511e>200.000đ</font>
-                            </div>
-                        </div>
-                        <div class="col-sm-2">
-                            <div class="thumbnail">
-                                <img src="image/c2ab7ef883acabac64a32ecfd8b18ba4_tn.jfif" alt="San Francisco">
-                                <p><strong>Bộ bấm móng tay ToBé</strong></p>
-                                <font color=#f4511e>200.000đ</font>
-                            </div>
-                        </div>
-                        <div class="col-sm-2">
-                            <div class="thumbnail">
-                                <img src="image/c2ab7ef883acabac64a32ecfd8b18ba4_tn.jfif" alt="San Francisco">
-                                <p><strong>Bộ bấm móng tay ToBé</strong></p>
-                                <font color=#f4511e>200.000đ</font>
-                            </div>
-                        </div>
-                        <div class="col-sm-2">
-                            <div class="thumbnail">
-                                <img src="image/c2ab7ef883acabac64a32ecfd8b18ba4_tn.jfif" alt="San Francisco">
-                                <p><strong>Bộ bấm móng tay ToBé</strong></p>
-                                <font color=#f4511e>200.000đ</font>
-                            </div>
-                        </div>
-                        <div class="col-sm-2">
-                            <div class="thumbnail">
-                                <img src="image/c2ab7ef883acabac64a32ecfd8b18ba4_tn.jfif" alt="San Francisco">
-                                <p><strong>Bộ bấm móng tay ToBé</strong></p>
-                                <font color=#f4511e>200.000đ</font>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="row text-center">
-                        <div class="col-sm-2">
-                            <div class="thumbnail">
-                                <img src="image/c2ab7ef883acabac64a32ecfd8b18ba4_tn.jfif" alt="San Francisco">
-                                <p><strong>Bộ bấm móng tay ToBé</strong></p>
-                                <font color=#f4511e>200.000đ</font>
-                            </div>
-                        </div>
-                        <div class="col-sm-2">
-                            <div class="thumbnail">
-                                <img src="image/c2ab7ef883acabac64a32ecfd8b18ba4_tn.jfif" alt="San Francisco">
-                                <p><strong>Bộ bấm móng tay ToBé</strong></p>
-                                <font color=#f4511e>200.000đ</font>
-                            </div>
-                        </div>
-                        <div class="col-sm-2">
-                            <div class="thumbnail">
-                                <img src="image/c2ab7ef883acabac64a32ecfd8b18ba4_tn.jfif" alt="San Francisco">
-                                <p><strong>Bộ bấm móng tay ToBé</strong></p>
-                                <font color=#f4511e>200.000đ</font>
-                            </div>
-                        </div>
-
-
-                    </div>
-
+                            
                     <div>
                         <ul class="pagination pagination-sm">
                             <li><a href="#">1</a></li>
